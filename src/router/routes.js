@@ -11,6 +11,8 @@ import fruitEdit from "./../components/home/fruits/FruitsEdit.vue"
 import SignUp from "../components/authentication/Register.vue"
 import success from "../components/authentication/Success.vue"
 import login from "../components/authentication/Login.vue"
+import firebase from "firebase";
+import db from "../components/firebase/init.js"
 export const routes = [
     {
         /* eslint-disable */
@@ -28,6 +30,7 @@ export const routes = [
             'header-top': Header,
             'header-bottom': Footer
         }
+       
     },
     {
         path: '/myFormBoots', name: 'myFormBoots', components: {
@@ -41,7 +44,11 @@ export const routes = [
             default: datatableBootstraps,
             'header-top': Header,
             'header-bottom': Footer
-        }
+        },
+        meta: {
+            requiresAuth: true
+          }
+       
     },
     {
         path: '/fruit', name: 'fruit', components: {
@@ -82,3 +89,12 @@ export const routes = [
     { path: '/redirect-me', redirect: { name: 'home' } },
     { path: '*', redirect: '/page404' }
 ]
+
+
+// routes.beforeEach((to, from, next) => {
+//     const currentUser = firebase.auth().currentUser;
+//     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+//     if (requiresAuth && !currentUser) next('login');
+//     else if (!requiresAuth && currentUser) next('home');
+//     else next();
+// });
