@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <h1>Fruits</h1>
-    <hr>
+  <b-container>
+    <h4>REGISTER SUCCESS</h4>Black to Home
     <button @click="navigateToHome" class="btn btn-primary">Home Page</button>
-    <hr>
-    <router-view></router-view>
-  </div>
+  </b-container>
 </template>
 
 <script>

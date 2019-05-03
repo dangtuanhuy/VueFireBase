@@ -1,3 +1,5 @@
+import firebase from 'firebase'
+import firestore from 'firebase/firestore'
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyC8ulgbXLsAOq0C73m5PYXuWbkbFJDu6RU",
@@ -7,4 +9,5 @@
     storageBucket: "vue-ex-6b69c.appspot.com",
     messagingSenderId: "280041007923"
   };
-  firebase.initializeApp(config);
+  const firebaseApp =  firebase.initializeApp(config);
+  export default firebaseApp.firestore();
